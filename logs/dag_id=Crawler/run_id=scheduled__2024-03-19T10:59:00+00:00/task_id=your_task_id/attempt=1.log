@@ -1,0 +1,20 @@
+[2024-03-19T11:00:00.904+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Crawler.your_task_id scheduled__2024-03-19T10:59:00+00:00 [queued]>
+[2024-03-19T11:00:00.909+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Crawler.your_task_id scheduled__2024-03-19T10:59:00+00:00 [queued]>
+[2024-03-19T11:00:00.910+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-19T11:00:00.919+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): your_task_id> on 2024-03-19 10:59:00+00:00
+[2024-03-19T11:00:00.924+0000] {standard_task_runner.py:60} INFO - Started process 1801 to run task
+[2024-03-19T11:00:00.927+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Crawler', 'your_task_id', 'scheduled__2024-03-19T10:59:00+00:00', '--job-id', '177', '--raw', '--subdir', 'DAGS_FOLDER/new_crawler.py', '--cfg-path', '/tmp/tmppk85c6cn']
+[2024-03-19T11:00:00.929+0000] {standard_task_runner.py:88} INFO - Job 177: Subtask your_task_id
+[2024-03-19T11:00:00.970+0000] {task_command.py:423} INFO - Running <TaskInstance: Crawler.your_task_id scheduled__2024-03-19T10:59:00+00:00 [running]> on host d99d270e5c22
+[2024-03-19T11:00:01.039+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Xirano' AIRFLOW_CTX_DAG_ID='Crawler' AIRFLOW_CTX_TASK_ID='your_task_id' AIRFLOW_CTX_EXECUTION_DATE='2024-03-19T10:59:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-19T10:59:00+00:00'
+[2024-03-19T11:00:51.289+0000] {local_task_job_runner.py:296} WARNING - DagRun timed out after 0:00:51.267987.
+[2024-03-19T11:00:56.324+0000] {local_task_job_runner.py:296} WARNING - DagRun timed out after 0:00:56.302906.
+[2024-03-19T11:00:56.324+0000] {local_task_job_runner.py:302} WARNING - State of this instance has been externally set to skipped. Terminating instance.
+[2024-03-19T11:00:56.326+0000] {process_utils.py:131} INFO - Sending 15 to group 1801. PIDs of all processes in the group: [1801]
+[2024-03-19T11:00:56.326+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 1801
+[2024-03-19T11:00:56.327+0000] {taskinstance.py:2483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-03-19T11:00:56.327+0000] {logging_mixin.py:188} INFO - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+[2024-03-19T11:00:56.327+0000] {logging_mixin.py:188} INFO -  the error acuire in crawl data from TSETMS Task received SIGTERM signal
+[2024-03-19T11:00:56.328+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-03-19T11:00:56.336+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=Crawler, task_id=your_task_id, execution_date=20240319T105900, start_date=20240319T110000, end_date=20240319T110056
+[2024-03-19T11:00:56.382+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=1801, status='terminated', exitcode=0, started='11:00:00') (1801) terminated with exit code 0

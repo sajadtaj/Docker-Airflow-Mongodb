@@ -1,0 +1,8 @@
+[2024-03-19T10:41:29.103+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Crawler.your_task_id scheduled__2024-03-19T10:12:00+00:00 [queued]>
+[2024-03-19T10:41:29.117+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Crawler.your_task_id scheduled__2024-03-19T10:12:00+00:00 [queued]>
+[2024-03-19T10:41:29.118+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-19T10:41:29.144+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): your_task_id> on 2024-03-19 10:12:00+00:00
+[2024-03-19T10:41:29.160+0000] {standard_task_runner.py:60} INFO - Started process 1376 to run task
+[2024-03-19T10:41:29.170+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Crawler', 'your_task_id', 'scheduled__2024-03-19T10:12:00+00:00', '--job-id', '131', '--raw', '--subdir', 'DAGS_FOLDER/new_crawler.py', '--cfg-path', '/tmp/tmpnnovcidf']
+[2024-03-19T10:41:29.174+0000] {standard_task_runner.py:88} INFO - Job 131: Subtask your_task_id
+[2024-03-19T10:41:39.082+0000] {task_command.py:423} INFO - Running <TaskInstance: Crawler.your_task_id scheduled__2024-03-19T10:12:00+00:00 [running]> on host d99d270e5c22

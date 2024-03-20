@@ -1,0 +1,13 @@
+[2024-03-18T23:35:30.210+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: my_dag.Options_Crawler manual__2024-03-18T23:34:57.088241+00:00 [queued]>
+[2024-03-18T23:35:30.222+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: my_dag.Options_Crawler manual__2024-03-18T23:34:57.088241+00:00 [queued]>
+[2024-03-18T23:35:30.226+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-18T23:35:30.241+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): Options_Crawler> on 2024-03-18 23:34:57.088241+00:00
+[2024-03-18T23:35:30.249+0000] {standard_task_runner.py:60} INFO - Started process 313 to run task
+[2024-03-18T23:35:30.253+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'my_dag', 'Options_Crawler', 'manual__2024-03-18T23:34:57.088241+00:00', '--job-id', '87', '--raw', '--subdir', 'DAGS_FOLDER/crawler.py', '--cfg-path', '/tmp/tmp2dwa63i6']
+[2024-03-18T23:35:30.256+0000] {standard_task_runner.py:88} INFO - Job 87: Subtask Options_Crawler
+[2024-03-18T23:35:30.307+0000] {task_command.py:423} INFO - Running <TaskInstance: my_dag.Options_Crawler manual__2024-03-18T23:34:57.088241+00:00 [running]> on host f63e51d765c8
+[2024-03-18T23:35:30.388+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='my_dag' AIRFLOW_CTX_TASK_ID='Options_Crawler' AIRFLOW_CTX_EXECUTION_DATE='2024-03-18T23:34:57.088241+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-03-18T23:34:57.088241+00:00'
+[2024-03-18T23:35:32.734+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-03-18T23:35:32.745+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=my_dag, task_id=Options_Crawler, execution_date=20240318T233457, start_date=20240318T233530, end_date=20240318T233532
+[2024-03-18T23:35:32.771+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-03-18T23:35:32.787+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

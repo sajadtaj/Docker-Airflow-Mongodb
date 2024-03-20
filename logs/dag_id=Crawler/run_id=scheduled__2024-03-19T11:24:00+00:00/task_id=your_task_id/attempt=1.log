@@ -1,0 +1,9 @@
+[2024-03-19T11:35:00.819+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Crawler.your_task_id scheduled__2024-03-19T11:24:00+00:00 [queued]>
+[2024-03-19T11:35:00.831+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Crawler.your_task_id scheduled__2024-03-19T11:24:00+00:00 [queued]>
+[2024-03-19T11:35:00.832+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-03-19T11:35:00.849+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): your_task_id> on 2024-03-19 11:24:00+00:00
+[2024-03-19T11:35:00.857+0000] {standard_task_runner.py:60} INFO - Started process 265 to run task
+[2024-03-19T11:35:00.861+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'Crawler', 'your_task_id', 'scheduled__2024-03-19T11:24:00+00:00', '--job-id', '203', '--raw', '--subdir', 'DAGS_FOLDER/new_crawler.py', '--cfg-path', '/tmp/tmpr9deii5x']
+[2024-03-19T11:35:00.865+0000] {standard_task_runner.py:88} INFO - Job 203: Subtask your_task_id
+[2024-03-19T11:35:00.935+0000] {task_command.py:423} INFO - Running <TaskInstance: Crawler.your_task_id scheduled__2024-03-19T11:24:00+00:00 [running]> on host 26a0b219297f
+[2024-03-19T11:35:01.055+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Xirano' AIRFLOW_CTX_DAG_ID='Crawler' AIRFLOW_CTX_TASK_ID='your_task_id' AIRFLOW_CTX_EXECUTION_DATE='2024-03-19T11:24:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-03-19T11:24:00+00:00'

@@ -1,3 +1,4 @@
+# All Services must be in same network
 x-airflow-common:
   &airflow-common
   # In order to add custom dependencies or upgrade provider packages you can use your extended image.
@@ -38,7 +39,7 @@ x-airflow-common:
 
 services:
   db:
-    container_name: mongo-Database
+    container_name: mongoDatabase
     image: mongo:4.2
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
@@ -59,7 +60,7 @@ services:
     networks: 
       - mongo-compose-network
     environment:
-      - ME_CONFIG_MONGODB_SERVER=mongo-Database
+      - ME_CONFIG_MONGODB_SERVER=mongoDatabase
       - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
       - ME_CONFIG_MONGODB_ADMINPASSWORD=pass
       - ME_CONFIG_BASICAUTH_USERNAME=admin
@@ -84,6 +85,8 @@ services:
       retries: 5
       start_period: 5s
     restart: always
+    networks: 
+      - mongo-compose-network
 
   redis:
     image: redis:latest
@@ -97,12 +100,14 @@ services:
       retries: 50
       start_period: 30s
     restart: always
+    networks: 
+      - mongo-compose-network
+
 
   airflow-webserver:
     <<: *airflow-common
     command: webserver
     container_name: Webserver
-
     ports:
       - "8080:8080"
     healthcheck:
@@ -116,6 +121,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks: 
+      - mongo-compose-network
 
   airflow-scheduler:
     <<: *airflow-common
@@ -132,6 +139,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks: 
+      - mongo-compose-network
 
   airflow-worker:
     <<: *airflow-common
@@ -157,6 +166,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks: 
+      - mongo-compose-network
 
   airflow-triggerer:
     <<: *airflow-common
@@ -175,6 +186,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks: 
+      - mongo-compose-network
 
   airflow-init:
     <<: *airflow-common
@@ -240,6 +253,8 @@ services:
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
+    networks: 
+      - mongo-compose-network
 
   airflow-cli:
     <<: *airflow-common
@@ -254,10 +269,9 @@ services:
       - bash
       - -c
       - airflow
+    networks: 
+      - mongo-compose-network
 
-  # You can enable flower by adding "--profile flower" option e.g. docker-compose --profile flower up
-  # or by explicitly targeted on the command line e.g. docker-compose up flower.
-  # See: https://docs.docker.com/compose/profiles/
   flower:
     <<: *airflow-common
     command: celery flower
@@ -276,6 +290,8 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    networks: 
+      - mongo-compose-network
 
 volumes:
   postgres-db-volume:
