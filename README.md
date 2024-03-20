@@ -208,7 +208,7 @@ IRST = timezone('Asia/Tehran')
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 Edg/95.0.1020.53'}
 url     = "https://cdn.tsetmc.com/api/Instrument/GetInstrumentOptionMarketWatch/1"
 ```
-+ + define Crawl function :
++ + define Crawler function :
 ```python
 def scrape_and_store(**kwargs):
     try:
@@ -257,7 +257,6 @@ dag = DAG(
     dag_id       = 'Crawler',
     default_args = default_args,
     start_date   = days_ago(1),  # Adjust as needed
-    # Schedule to run between 9 AM and 3 PM on Saturday to Wednesday
     schedule_interval='* * * * *',  # Base for cron expression
     dagrun_timeout=timedelta(seconds=50),  # Adjust if needed
 )
@@ -276,11 +275,11 @@ task = PythonOperator(
    docker-compose up --build
    ```
 
-5. **Access Airflow UI:**
+12. **Access Airflow UI:**
    - Open a web browser and navigate to `http://localhost:8080` to access the Airflow UI.
    - Configure necessary connections and variables in Airflow for MongoDB.
 
-6. **Run the Airflow DAG:**
+13. **Run the Airflow DAG:**
    - Initiate the Airflow DAG to commence crawling TSETMC data.
 
 ### Additional Notes
