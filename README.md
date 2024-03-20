@@ -1,4 +1,4 @@
-## Project: Docker Compose Setup for Airflow and MongoDB to Crawl TSETMC Data
+## Setup __Airflow__ and __MongoDB__ to Crawl TSETMC Data
 
 ### Description
 This project involves setting up a Docker Compose environment with Airflow and MongoDB to crawl TSETMC data efficiently.
